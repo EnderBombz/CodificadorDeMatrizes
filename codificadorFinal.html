@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificador de matrizes</title>
+
+    <!-- Font Tenali Ramakrishna-->
+    <link href="https://fonts.googleapis.com/css2?family=Tenali+Ramakrishna&display=swap" rel="stylesheet">
+    <!-- MDB icon -->
+    <link rel="icon" href="Sources/img/favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="Sources/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="Sources/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="Sources/_css/estilo.css">
+    <!-- Official Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+</head>
+
+<body style="background-color: #868685;">
+
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-12 col-sm-6 col-md-8">
+
+                <div class="campos">
+                    <h1 id="titulo">Codificação de matrizes</h1>
+                    <div class="caixa-input">
+                        <table style="width: 100%;">
+                            <tr>
+                                <th>
+                                    <select id="combobox" class="browser-default custom-select">
+                                <option value="2">2x2</option>
+                            </select>
+                                </th>
+                            </tr>
+                        </table>
+                        <button type="button" class="btn btn-primary" style="padding:20px 30px 20px 30px; " id="botaoM">Gerar chave</button>
+                    </div>
+
+                    <div class="caixa-input">
+                        <label for="mensagem"><h3>Escreva uma mensagem</h3></label>
+                        <input name="mensagem" type="text" class="form-control" id="mensagem" maxlength disabled></input>
+                        <button type="button" class="btn btn-primary" style="padding:20px 30px 20px 30px; " id="botaoC" disabled>Codificar</button>
+                    </div>
+
+
+                    <div class="row mx-lg-n5">
+                        <div class="col py-3 px-lg-5">
+                            <h5>Matriz mensagem</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div class="matriz" id="matrizmsg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col py-3 px-lg-5">
+                            <h5>Matriz inversa da chave</h5>
+                            <div class="posicao">
+                                <div class="campos2">
+                                    <div class="matriz2" id="matrizmsgcod"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row mx-lg-n5">
+                        <div class="col py-3 px-lg-5">
+                            <h5>Matriz codificada</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div class="matriz" id="matrizmsgcodif" style="margin-left: -10px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col py-3 px-lg-5">
+                            <h5>Matriz decodificada</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div class="matriz" id="matrizchaveinv"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h1 class="titulo34">Decodificar uma matriz</h1>
+
+                    <p>Este módulo do programa que poderá decodificar mensagens informando o lado da chave que foi multiplicado para codificar, a matriz codificada e a chave que foi utilizada</p>
+
+                    <div class="radioButtons">
+                        <table>
+                            <tr>
+                                <th>
+                                    <input type="radio" id="esquerda" name="radiob"></input>
+                                    <label for="esquerda"><h5>Esquerda</h5></label>
+                                </th>
+
+                            </tr>
+                            <tr>
+                                <th>
+                                    <input type="radio" id="direita" name="radiob"></input>
+                                    <label for="direita"><h5>Direita</h5></label>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="row mx-lg-n5">
+                        <div class="col py-3 px-lg-5">
+                            <h5>Matriz codigo</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div>
+                                        <table class="tabelainp">
+                                            <tr>
+                                                <td> <input type="number" class="form-control" id="m00" maxlength="3"></input>
+                                                </td>
+                                                <td> <input type="number" class="form-control" id="m01" maxlength="3"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <input type="number" class="form-control" id="m10" maxlength="3"></input>
+                                                </td>
+                                                <td> <input type="number" class="form-control" id="m11" maxlength="3"></input>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" style="padding:20px 30px 20px 30px; margin-left: 230px; margin-top: 60px;" id="botaoD">Decodificar</button>
+                        </div>
+                        <div class="col py-3 px-lg-5">
+                            <h5>Chave da matriz</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div>
+                                        <table class="tabelainp">
+                                            <tr>
+                                                <td> <input type="number" class="form-control" id="c00" maxlength="3"></input>
+                                                </td>
+                                                <td> <input type="number" class="form-control" id="c01" maxlength="3"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <input type="number" class="form-control" id="c10" maxlength="3"></input>
+                                                </td>
+                                                <td> <input type="number" class="form-control" id="c11" maxlength="3"></input>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mx-lg-n5">
+                        <div class="col py-3 px-lg-5">
+                            <h5>Mensagem decodificada</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div id="mensagemdecodificada">
+                                        <table class="tabelamatriz">
+                                            <tr>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col py-3 px-lg-5">
+                            <h5>Inversa da chave</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div id="inversadachave">
+                                        <table class="tabelamatriz2">
+                                            <tr>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                                <td>
+                                                    <h5></h5>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row mx-lg-n5">
+                        <div class="col py-3 px-lg-5">
+                            <h5>Mensagem decodificada em letras</h5>
+                            <div class="posicao">
+                                <div class="campos">
+                                    <div id="mensagemdecodificadaletra">
+                                        <table class="tabelamatriz">
+
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+            <div class="col-6 col-md-4">
+
+                <div class="posicao2">
+                    <h3>Chave da matriz</h3>
+                    <div class="campos" id="posicao22">
+                        <div class="matriz" id="matrizi"></div>
+                    </div>
+
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <table id="indicee" style="margin:60px 150px 30px 150px;">
+                                <tr>
+                                    <td>A = 1</td>
+                                </tr>
+                                <tr>
+                                    <td>B = 2</td>
+                                </tr>
+                                <tr>
+                                    <td>C = 3</td>
+                                </tr>
+                                <tr>
+                                    <td>D = 4</td>
+                                </tr>
+                                <tr>
+                                    <td>E = 5</td>
+                                </tr>
+                                <tr>
+                                    <td>F = 6</td>
+                                </tr>
+                                <tr>
+                                    <td>G = 7</td>
+                                </tr>
+                                <tr>
+                                    <td>H = 8</td>
+                                </tr>
+                                <tr>
+                                    <td>I = 9</td>
+                                </tr>
+                                <tr>
+                                    <td>J = 10</td>
+                                </tr>
+                                <tr>
+                                    <td>K = 11</td>
+                                </tr>
+                                <tr>
+                                    <td>L = 12</td>
+                                </tr>
+                                <tr>
+                                    <td>M = 13</td>
+                                </tr>
+                                <tr>
+                                    <td>N = 14</td>
+                                </tr>
+                                <tr>
+                                    <td>O = 15</td>
+                                </tr>
+                                <tr>
+                                    <td>P = 16</td>
+                                </tr>
+                                <tr>
+                                    <td>Q = 17</td>
+                                </tr>
+                                <tr>
+                                    <td>R = 18</td>
+                                </tr>
+                                <tr>
+                                    <td>S = 19</td>
+                                </tr>
+                                <tr>
+                                    <td>T = 20</td>
+                                </tr>
+                                <tr>
+                                    <td>U = 21</td>
+                                </tr>
+                                <tr>
+                                    <td>V = 22</td>
+                                </tr>
+                                <tr>
+                                    <td>W = 23</td>
+                                </tr>
+                                <tr>
+                                    <td>X = 24</td>
+                                </tr>
+                                <tr>
+                                    <td>Y = 25</td>
+                                </tr>
+                                <tr>
+                                    <td>Z = 26</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- End your project here-->
+    <!-- jQuery -->
+    <script type="text/javascript" src="Sources/js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="Sources/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="Sources/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="Sources/js/mdb.min.js"></script>
+    <!-- Bootstrap Official scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Your custom scripts (optional) -->
+    <script type="text/javascript" src="Sources/_javascript/javascriptF.js"></script>
+
+</body>
+
+</html>
