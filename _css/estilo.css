@@ -1,0 +1,88 @@
+body {
+    background-color: black;
+}
+
+.col-12 {
+    margin-top: 65px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+    border-radius: 6px 0px 0px 6px;
+}
+
+.col-6 {
+    margin-top: 65px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .5);
+    border-radius: 0px 6px 6px 0px;
+}
+
+.campos {
+    padding: 45px;
+}
+
+.posicao {
+    margin-left: -20px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .5);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.posicao2 {
+    margin: 15px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .5);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.btn {
+    margin-left: 0px;
+    margin-top: 15px;
+}
+
+.tabelamatriz td {
+    border: 1px solid black;
+    padding: 15px 22px 15px 22px;
+    font-size: 16pt;
+    color: blue;
+}
+
+.tabelamatriz {
+    width: 100%;
+    position: relative;
+}
+
+.tabelamatriz2 td {
+    border: 1px solid black;
+    padding: 5px 12px 5px 12px;
+    font-size: 10pt;
+    color: blue;
+}
+
+.tabelamatriz2 {
+    width: 100%;
+    position: relative;
+    margin-left: -4%;
+}
+
+code {
+    font-family: monospace;
+}
+
+.caixa-input {
+    margin: 5px 0px 30px 0px;
+}
+
+table#indice {
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid black;
+}
+
+h1.titulo34 {
+    margin-top: 45px;
+    margin-left: -2%;
+}
+
+.tabelainp td {
+    border: 1px solid black;
+}
